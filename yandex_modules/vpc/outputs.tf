@@ -13,3 +13,7 @@ output "vpc_id" {
 output "subnet_ids" {
   value =   {for index, value in yandex_vpc_subnet.vpc-subnet: value.name => value.id }
 }
+
+output "subnet_ips" {
+  value =   {for index, value in yandex_vpc_subnet.vpc-subnet: value.name => value.v4_cidr_blocks[0] }
+}
